@@ -1,0 +1,31 @@
+#backend
+backend/.aws-sam
+backend/*/bootstrap
+backend/*/function.zip
+# iac
+
+iac/.terraform
+iac/.terraform.lock.hcl
+
+# frontend
+frontend/node_modules
+frontend/.pnp
+.pnp.js
+
+# testing
+frontend/coverage
+
+# production
+frontend/build/*
+frontend/public/*.png
+
+# misc
+.DS_Store
+frontend/.env.local
+frontend/.env.development
+frontend/.env.test.local
+frontend/.env.production
+
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*

@@ -1,0 +1,37 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2019-06-15
+Description: SAM Template for OminousPositivity
+
+Globals:
+  Function:
+    Timeout: 60
+    MemorySize: 256
+    Handler: bootstrap
+    Runtime: provided.al2
+    Architectures:
+      - x86_64
+  Api:
+    Cors:
+      AllowOrigin: "'http://localhost:3000'"
+      AllowHeaders: "'Content-Type'"
+
+Resources:
+  # Lambda Function for Message
+  MessageFunction:
+    Type: AWS::Serverless::Function
+    Metadata:
+      BuildMethod: go1.x
+    Properties:
+      CodeUri: ./message/
+      Environment:
+        Variables:
+          TABLE_NAME: "ominous_positivity"
+          USE_LOCAL: true
+          ALLOW_ORIGIN: "http://localhost:3000"
+          DYNAMO_ENDPOINT: "http://host.docker.internal:8000" #Since SAM runs in Docker this is necessary to hit Dynamo
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /message
+            Method: get

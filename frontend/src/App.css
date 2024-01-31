@@ -1,0 +1,28 @@
+/* Ensure that the root div fills the entire height of the viewport */
+#root, .full-height {
+  height: 100vh;
+  min-height: 100vh; /* Minimum height to account for any viewport size */
+}
+
+/* This will center the content vertically and horizontally using flexbox */
+.full-height {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+}
+
+/* Styling for the quote box with more 'old-timey' features */
+.quote-box {
+  text-align: center;
+  font-family: 'Playfair Display', serif; /* A font that has an old-timey feel */
+  font-size: 1.25rem;
+  font-style: italic;
+  max-width: 600px; /* Set a max width for the box */
+  margin: 0; /* Override any default margins */
+  padding: 2rem;
+  background-color: #f8f9fa;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ddd;
+  color: #555;
+}
